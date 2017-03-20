@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open MCT Tutorials</title>
+    <script src="node_modules/requirejs/require.js"></script>
+</head>
+<body>
+    <script>
+        function init(axios) {
+            if (window.http === undefined) {
+                window.http = axios; 
+            }
+        }
+        require.config({
+            paths:{ 
+                "text": "node_modules/text/text",
+                "tutorials": "node_modules/openmct-tutorials",
+                //"http": "node_modules/openmct-tutorials/lib/http",
+                "axios": "node_modules/axios/dist/axios.min"
+           },
+           shim: {
+               "tutorials/dictionary-plugin": {
+                   exports: "DictionaryPlugin",
+                   deps: ["axios"],
+                   init: init
+               },
+               "tutorials/realtime-telemetry-plugin": {
+                   exports: "RealtimeTelemetryPlugin",
+                   deps: ["axios"],
+                   init: init
+               },
+               "tutorials/historical-telemetry-plugin": {
+                   exports: "HistoricalTelemetryPlugin",
+                   deps: ["axios"],
+                   init: init
+               }
+
+           }
+        });
+        require([
+                "./node_modules/openmct/dist/openmct",
+                "tutorials/dictionary-plugin",
+                "tutorials/realtime-telemetry-plugin",
+                "tutorials/historical-telemetry-plugin",
+                "./scripts/demo-objects",
+                "./scripts/scaled-image",
+            ],
+            function (
+                openmct,
+                DictionaryPlugin,
+                RealtimeTelemetryPlugin,
+                HistoricalTelemetryPlugin,
+                DemoObjectsPlugin,
+                ScaledImagePlugin
+            ) {
+                  openmct.setAssetPath("node_modules/openmct/dist");
+                  openmct.install(openmct.plugins.LocalStorage());
+                  openmct.install(openmct.plugins.Espresso());
+                  openmct.install(openmct.plugins.UTCTimeSystem());
+       
+                  openmct.install(openmct.plugins.Conductor({
+                      showConductor: true
+                  }));
+                  openmct.install(DemoObjectsPlugin());
+                  openmct.legacyRegistry.enable("example/msl");
+                  openmct.legacyRegistry.enable("example/imagery");
+		  openmct.install(ScaledImagePlugin());
+                  openmct.install(DictionaryPlugin());
+                  openmct.install(RealtimeTelemetryPlugin());
+                  openmct.install(HistoricalTelemetryPlugin());
+                  
+                  openmct.install(openmct.plugins.MyItems());
+                  openmct.start();
+             }
+        );
+    </script>
+</body>
+</html>

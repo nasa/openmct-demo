@@ -1,0 +1,22 @@
+{
+  "name": "live-demo",
+  "version": "0.0.1",
+  "description": "Public demonstration of the Open MCT platform",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npm install --ignore-scripts nasa/openmct-tutorial",
+    "start": "node server.js -p 8090 &! node node_modules/openmct-tutorials/example-server/server.js"
+  },
+  "author": "National Aeronautics and Space Administration",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "atomic": "github:toddmotto/atomic",
+    "axios": "^0.15.3",
+    "express": "^4.15.2",
+    "minimist": "^1.2.0",
+    "openmct": "github:nasa/openmct",
+    "requirejs": "^2.3.3",
+    "text": "github:requirejs/text"
+  }
+}
