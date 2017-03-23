@@ -5,15 +5,14 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm install --ignore-scripts nasa/openmct-tutorial",
-    "start": "node server.js -p 8090 &! node node_modules/openmct-tutorials/example-server/server.js"
+    "postinstall": "cd node_modules/openmct && npm install && cd ../../ && npm install --ignore-scripts nasa/openmct-tutorial#fix-http-lib",
+    "start": "node server.js -p 8080"
   },
   "author": "National Aeronautics and Space Administration",
   "license": "Apache-2.0",
   "dependencies": {
-    "atomic": "github:toddmotto/atomic",
-    "axios": "^0.15.3",
     "express": "^4.15.2",
+    "hopscotch": "^0.2.7",
     "minimist": "^1.2.0",
     "openmct": "github:nasa/openmct",
     "requirejs": "^2.3.3",

@@ -848,7 +848,7 @@
             "demo:aa1ea485-c4b9-4763-9c48-0ca06789cc78",
             "example.taxonomy:pwr.v",
             "demo:1713049f-bcb2-4a52-88d1-908b05598696",
-            "example.taxonomy:prop.fuel",
+            "example.taxonomy:pwr.soc",
             "demo:28f8865b-a9f3-45da-93ee-249b4affe3d3"
             ],
         "name":"Spacecraft Operator Layout",
@@ -859,7 +859,7 @@
         "configuration":{
             "layout":{
                 "panels":{
-                    "example.taxonomy:pwr.temp":{
+                    "example.taxonomy:pwr.v":{
                         "position":[12,2],
                         "dimensions":[12,8]
                     },
@@ -867,7 +867,7 @@
                         "position":[0,18], 
                         "dimensions":[12,8]
                     },
-                    "example.taxonomy:pwr.v":{
+                    "example.taxonomy:pwr.temp":{
                         "position":[12,18],
                         "dimensions":[12,8]
                     },
@@ -890,7 +890,7 @@
                     "demo:1713049f-bcb2-4a52-88d1-908b05598696":{
                         "position":[0,2],
                         "dimensions":[12,8]},
-                        "example.taxonomy:prop.fuel":{
+                        "example.taxonomy:pwr.soc":{
                             "position":[24,18],"dimensions":[12,8]
                         }
                     }

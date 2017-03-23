@@ -15,7 +15,10 @@
         express = require('express'),
         app = express(),
         fs = require('fs'),
-        request = require('request')
+        request = require('request'),
+        Rover = require('./rover.js'),
+        RealtimeServer = require('openmct-tutorials/example-server/realtime-server'),
+        HistoryServer = require('openmct-tutorials/example-server/history-server');
 
     var proxyUrls = [
         'http://cab.inta-csic.es/rems/wp-content/plugins/marsweather-widget/api.php'
@@ -59,9 +62,12 @@
 
     // Expose everything else as static files
     app.use(express['static'](options.directory));
-    app.use(express['static']('node_modules/openmct-tutorials/'));
     // Finally, open the HTTP server
     app.listen(options.port);
+
+    var spacecraft = new Rover();
+    new RealtimeServer(spacecraft, 8082);
+    new HistoryServer(spacecraft, 8081); 
 
     console.log('Server running on ' + options.port);
 }());

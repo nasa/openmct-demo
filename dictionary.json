@@ -1,0 +1,190 @@
+{
+    "name": "Example Rover",
+    "key": "sc",
+    "measurements": [
+        {
+            "name": "Battery State of Charge",
+            "key": "pwr.soc",
+            "values": [
+                {
+                    "key": "value",
+                    "name": "Value",
+                    "units": "%",
+                    "format": "float",
+                    "hints": {
+                        "y": 1,
+                        "range": 1
+                    }
+                },
+                {
+                    "key": "timestamp",
+                    "name": "Timestamp",
+                    "format": "utc",
+                    "hints": {
+                        "x": 1,
+                        "domain": 1
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Wheel Motors",
+            "key": "pwr.motors",
+            "values": [
+                {
+                    "key": "value",
+                    "name": "Value",
+                    "format": "enum",
+                    "enumerations": [
+                        {
+                            "string": "On",
+                            "value": 1
+                        },
+                        {
+                            "string": "Off",
+                            "value": 0
+                        }
+                    ],
+                    "hints": {
+                        "y": 1,
+                        "range": 1
+                    }
+                },
+                {
+                    "key": "timestamp",
+                    "name": "Timestamp",
+                    "format": "utc",
+                    "hints": {
+                        "x": 1,
+                        "domain": 1
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Received",
+            "key": "comms.recd",
+            "values": [
+                {
+                    "key": "value",
+                    "name": "Value",
+                    "units": "bytes",
+                    "format": "integer",
+                    "hints": {
+                        "y": 1,
+                        "range": 1
+                    }
+                },
+                {
+                    "key": "timestamp",
+                    "name": "Timestamp",
+                    "format": "utc",
+                    "hints": {
+                        "x": 1,
+                        "domain": 1
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Sent",
+            "key": "comms.sent",
+            "values": [
+                {
+                    "key": "value",
+                    "name": "Value",
+                    "units": "bytes",
+                    "format": "integer",
+                    "hints": {
+                        "y": 1,
+                        "range": 1
+                    }
+                },
+                {
+                    "key": "timestamp",
+                    "name": "Timestamp",
+                    "format": "utc",
+                    "hints": {
+                        "x": 1,
+                        "domain": 1
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Battery Temperature",
+            "key": "pwr.temp",
+            "values": [
+                {
+                    "key": "value",
+                    "name": "Value",
+                    "units": "℃",
+                    "format": "float",
+                    "hints": {
+                        "y": 1,
+                        "range": 1
+                    }
+                },
+                {
+                    "key": "timestamp",
+                    "name": "Timestamp",
+                    "format": "utc",
+                    "hints": {
+                        "x": 1,
+                        "domain": 1
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Battery Current",
+            "key": "pwr.c",
+            "values": [
+                {
+                    "key": "value",
+                    "name": "Value",
+                    "units": "Amps",
+                    "format": "float",
+                    "hints": {
+                        "y": 1,
+                        "range": 1
+                    }
+                },
+                {
+                    "key": "timestamp",
+                    "name": "Timestamp",
+                    "format": "utc",
+                    "hints": {
+                        "x": 1,
+                        "domain": 1
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Battery Voltage",
+            "key": "pwr.v",
+            "values": [
+                {
+                    "key": "value",
+                    "name": "Value",
+                    "units": "Volts",
+                    "format": "float",
+                    "hints": {
+                        "y": 1,
+                        "range": 1
+                    }
+                },
+                {
+                    "key": "timestamp",
+                    "name": "Timestamp",
+                    "format": "utc",
+                    "hints": {
+                        "x": 1,
+                        "domain": 1
+                    }
+                }
+            ]
+        }
+    ]
+}
