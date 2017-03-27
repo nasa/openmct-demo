@@ -21,38 +21,14 @@ define([], function () {
                 return $location;
             }
 
-            function parseKeyString(keyString) {
-                var namespace = '',
-                    key = keyString;
-                
-                for (var i = 0; i < key.length; i++) {
-                    if (key[i] === "\\" && key[i + 1] === ":") {
-                        i++; // skip escape character.
-                    } else if (key[i] === ":") {
-                        key = key.slice(i + 1);
-                        break;
-                    }
-                    namespace += key[i];
-                }
-
-                if (keyString === namespace) {
-                    namespace = '';
-                }
-
-                return {
-                    namespace: namespace,
-                    key: key
-                };
-            }
-
             function isRealtimeObject(object) {
-                var identifier = parseKeyString(object.getId());
+                var identifier = object.identifier;
                 return identifier.namespace === TUTORIAL_NAMESPACE ||
                        identifier.key === REALTIME_SPACECRAFT_LAYOUT;
             }
 
             function isHistoricalObject(object) {
-                var identifier = parseKeyString(object.getId());
+                var identifier = object.identifier;
                 return identifier.namespace === MSL_NAMESPACE ||
                        identifier.key === MSL_LAYOUT;
             }
@@ -62,10 +38,12 @@ define([], function () {
             }
  
             openmct.on('navigation', function (object) {
-                if (isRealtimeObject(object)) {
+                var o = object.useCapability('adapter');
+
+                if (isRealtimeObject(o)) {
                     console.log('real-time object');
                     setMode('realtime');
-                } else if (isHistoricalObject(object)) {
+                } else if (isHistoricalObject(o)) {
                     console.log('historical object');
                     setMode('fixed');
                     setTimeout(function () {

@@ -33,7 +33,10 @@ define(
                 //2. Add composition provider for demo objects
                 openmct.composition.addProvider({
                     appliesTo: function (object) {
-                        return object.identifier.namespace === 'demo' && object.composition !== undefined;
+                        return object.identifier.namespace === 'demo' && 
+                            object.composition !== undefined &&
+                            (object.identifier.key === 'demo-objects' || 
+                            demoModels[serializeId(object.identifier)] !== undefined);
                     },
                     load: function (model) {
                         var id = model.identifier;
