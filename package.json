@@ -15,6 +15,7 @@
     "hopscotch": "^0.2.7",
     "minimist": "^1.2.0",
     "openmct": "github:nasa/openmct",
+    "request": "^2.81.0",
     "requirejs": "^2.3.3",
     "text": "github:requirejs/text"
   }
