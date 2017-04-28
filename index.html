@@ -60,7 +60,6 @@
                   openmct.install(openmct.plugins.LocalStorage());
                   openmct.install(openmct.plugins.Espresso());
                   openmct.install(openmct.plugins.UTCTimeSystem());
-                  openmct.install(openmct.plugins.MyItems());
  
                   // Demo specific plugins
                   openmct.install(DemoObjectsPlugin());
@@ -79,6 +78,8 @@
                   openmct.install(openmct.plugins.Conductor({
                       showConductor: true
                   }));
+
+                  openmct.install(openmct.plugins.MyItems());
 
                   openmct.start();
              }

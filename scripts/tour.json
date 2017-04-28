@@ -73,7 +73,7 @@
     },
     {
         "title": "Adding an Object",
-        "content": "Let’s add a telemetry element into our layout. Expand 'Example Spacecraft', then drag 'Generator Temperature', into the empty space in the example layout, then click 'Next' to continue.",
+        "content": "Let’s add a telemetry element into our layout. Expand 'Example Rover', then drag 'Battery Temperature', into the empty space in the example layout, then click 'Next' to continue.",
         "target": "mct-tree ul.tree",
         "yOffset": "50px",
         "placement": "right"
@@ -81,10 +81,9 @@
     {
         "title": "Positioning and Resizing",
         "content": "Any object in a layout can be positioned and resized. Mouse over the object, and grab a corner and drag it to change the size. Click anywhere inside it, and drag it around to move it. When you’re done, click 'Next' to continue.",
-        "target": "body",
-        "placement": "left",
-        "xOffset": "center",
-        "yOffset": "200px"
+        "target": ".object-holder-main",
+        "placement": "right",
+        "xOffset": "-200px"
     },
     {
         "title": "Elements Pool",
