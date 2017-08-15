@@ -8,7 +8,7 @@
     "postinstall": "npm run install:openmct && npm run install:tutorial",
     "install:openmct": "cd node_modules/openmct && npm install",
     "install:tutorial": "npm install --ignore-scripts nasa/openmct-tutorial#tutorial-updates",
-    "start": "node server.js -p 8080"
+    "start": "node server.js"
   },
   "author": "National Aeronautics and Space Administration",
   "license": "Apache-2.0",
