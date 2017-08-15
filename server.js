@@ -10,15 +10,17 @@
 (function () {
     "use strict";
 
-    var BUNDLE_FILE = 'bundles.json',
-        options = require('minimist')(process.argv.slice(2)),
-        express = require('express'),
-        app = express(),
-        fs = require('fs'),
-        request = require('request'),
-        Rover = require('./rover.js'),
-        RealtimeServer = require('openmct-tutorials/example-server/realtime-server'),
-        HistoryServer = require('openmct-tutorials/example-server/history-server');
+    var BUNDLE_FILE = 'bundles.json';
+    var options = require('minimist')(process.argv.slice(2));
+    var express = require('express');
+    var app = express();
+    require('express-ws')(app);
+
+    var fs = require('fs');
+    var request = require('request');
+    var Rover = require('./rover.js');
+    var RealtimeServer = require('openmct-tutorials/example-server/realtime-server');
+    var HistoryServer = require('openmct-tutorials/example-server/history-server');
 
     var proxyUrls = [
         'http://cab.inta-csic.es/rems/wp-content/plugins/marsweather-widget/api.php'
@@ -60,14 +62,18 @@
         }
     });
 
+    var spacecraft = new Rover();
+    var realtime = new RealtimeServer(spacecraft);
+    var history = new HistoryServer(spacecraft);
+    app.use('/realtime', realtime);
+    app.use('/history', history);
+
     // Expose everything else as static files
     app.use(express['static'](options.directory));
     // Finally, open the HTTP server
-    app.listen(options.port);
-
-    var spacecraft = new Rover();
-    new RealtimeServer(spacecraft, 8082);
-    new HistoryServer(spacecraft, 8081); 
-
-    console.log('Server running on ' + options.port);
+    app.listen(options.port, function () {
+        console.log('Open MCT hosted at http://localhost:' + options.port);
+        console.log('History hosted at http://localhost:' + options.port + '/history');
+        console.log('Realtime hosted at ws://localhost:' + options.port + '/realtime');
+    });
 }());

@@ -256,17 +256,49 @@
         "persisted": 1459972004430
     },
     "demo:4d5ca79c-9ad4-438a-beaf-affdda43b7da": {
-        "telemetry": {},
+        "telemetry": {
+            "values": [{
+                "name": "Time",
+                "key": "utc",
+                "format": "utc",
+                "hints": {
+                    "domain": 1
+                }
+            }, {
+                "name": "Image",
+                "key": "url",
+                "format": "image",
+                "hints": {
+                    "image": 1
+                }
+            }]
+        },
         "name": "Navcam Left",
-        "type": "imagery",
+        "type": "example.imagery",
         "modified": 1459971993053,
         "location": "demo:930dd0b9-9d98-4908-b19c-c1c887117d42",
         "persisted": 1459971993053
     },
     "demo:b8858147-8e4f-4249-badb-b4031dba90f9": {
-        "telemetry": {},
+        "telemetry": {
+            "values": [{
+                "name": "Time",
+                "key": "utc",
+                "format": "utc",
+                "hints": {
+                    "domain": 1
+                }
+            }, {
+                "name": "Image",
+                "key": "url",
+                "format": "image",
+                "hints": {
+                    "image": 1
+                }
+            }]
+        },
         "name": "Navcam Right",
-        "type": "imagery",
+        "type": "example.imagery",
         "modified": 1459972004417,
         "location": "demo:930dd0b9-9d98-4908-b19c-c1c887117d42",
         "persisted": 1459972004417
@@ -572,7 +604,7 @@
    "demo:21a89560-680d-4eae-b1f7-c44cfa3b68da": {
         "telemetry": {},
         "name": "Navcam Right",
-        "type": "imagery",
+        "type": "example.imagery",
         "modified": 1461703126642,
         "location": "demo:a32079d0-676b-4e9f-ade7-86d5d2f152fc",
         "persisted": 1461703126642
@@ -851,7 +883,7 @@
             "example.taxonomy:pwr.soc",
             "demo:28f8865b-a9f3-45da-93ee-249b4affe3d3"
             ],
-        "name":"Spacecraft Operator Layout",
+        "name":"Rover Operator Layout",
         "type":"layout",
         "modified":1489943660703,
         "location":"demo:demo-objects",
@@ -864,7 +896,7 @@
                         "dimensions":[12,8]
                     },
                     "example.taxonomy:pwr.c":{
-                        "position":[0,18], 
+                        "position":[0,18],
                         "dimensions":[12,8]
                     },
                     "example.taxonomy:pwr.temp":{
@@ -953,9 +985,25 @@
         "persisted":1489942657577
     },
     "demo:1713049f-bcb2-4a52-88d1-908b05598696":{
-        "telemetry":{},
+        "telemetry": {
+            "values": [{
+                "name": "Time",
+                "key": "utc",
+                "format": "utc",
+                "hints": {
+                    "domain": 1
+                }
+            }, {
+                "name": "Image",
+                "key": "url",
+                "format": "image",
+                "hints": {
+                    "image": 1
+                }
+            }]
+        },
         "name":"Rover Navcam 1",
-        "type":"imagery",
+        "type":"example.imagery",
         "modified":1489943543498,
         "location":"demo:96592bba-a9f4-46d9-8d9f-a4efb45bcfc1",
         "persisted":1489943543498

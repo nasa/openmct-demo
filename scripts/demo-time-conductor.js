@@ -10,16 +10,8 @@ define([], function () {
             start: Date.parse('2012-08-06'),
             end: Date.now()
         };
-        
+
         return function install(openmct) {
-            var $location; 
-            
-            function getLocation() {
-                if ($location === undefined) {
-                    $location = openmct.$injector.get('$location');
-                }
-                return $location;
-            }
 
             function isRealtimeObject(object) {
                 var identifier = object.identifier;
@@ -32,29 +24,26 @@ define([], function () {
                 return identifier.namespace === MSL_NAMESPACE ||
                        identifier.key === MSL_LAYOUT;
             }
-       
-            function setMode(mode) {
-                getLocation().search('tc.mode', mode);
-            }
- 
+
             openmct.on('navigation', function (object) {
                 var o = object.useCapability('adapter');
 
                 if (isRealtimeObject(o)) {
-                    console.log('real-time object');
-                    setMode('realtime');
+                    openmct.time.clock('local', {
+                        start: -15 * 60 * 1000,
+                        end: 0
+                    });
                 } else if (isHistoricalObject(o)) {
-                    console.log('historical object');
-                    setMode('fixed');
                     setTimeout(function () {
-                        openmct.conductor.bounds(MSL_BOUNDS); 
+                        openmct.time.stopClock();
+                        openmct.time.bounds(MSL_BOUNDS);
                     });
                 }
             });
-            
+
             openmct.legacyExtension('runs', {
                 depends: [
-                    '$location' 
+                    '$location'
                 ],
                 implementation: function ($location) {
                     //For default route, redirect user to layout

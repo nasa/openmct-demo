@@ -11,7 +11,7 @@
         var http;
 
         require.config({
-            paths:{ 
+            paths:{
                 "text": "node_modules/text/text",
                 "tutorials": "node_modules/openmct-tutorials",
 		"hopscotch": "node_modules/hopscotch/dist/js/hopscotch.min",
@@ -30,10 +30,10 @@
            }
         });
 
-        // The 'http' library is a simple XHR library used by the tutorial telemetry adapters. 
+        // The 'http' library is a simple XHR library used by the tutorial telemetry adapters.
         // Tutorial adapters require it to be available globally.
 	require (['http'], function init(h) {
-            http = h; 
+            http = h;
         });
 
         require([
@@ -60,7 +60,7 @@
                   openmct.install(openmct.plugins.LocalStorage());
                   openmct.install(openmct.plugins.Espresso());
                   openmct.install(openmct.plugins.UTCTimeSystem());
- 
+
                   // Demo specific plugins
                   openmct.install(DemoObjectsPlugin());
                   openmct.install(ScaledImagePlugin());
@@ -71,17 +71,34 @@
 		  openmct.install(DictionaryPlugin());
                   openmct.install(RealtimeTelemetryPlugin());
                   openmct.install(HistoricalTelemetryPlugin());
- 
+
                   // Other supporting plugins
                   openmct.legacyRegistry.enable("example/msl");
-                  openmct.legacyRegistry.enable("example/imagery");
+                  openmct.install(openmct.plugins.ExampleImagery());
                   openmct.install(openmct.plugins.Conductor({
-                      showConductor: true
+                      menuOptions: [
+                          {
+                              timeSystem: 'utc',
+                              clock: 'local',
+                              clockOffsets: {
+                                start: -15 * 60 * 1000,
+                                end: 0
+                              }
+                          },
+                          {
+                              timeSystem: 'utc',
+                              bounds: {
+                                  start: Date.parse('2012-08-06'),
+                                  end: Date.now()
+                              }
+                          },
+                      ]
                   }));
 
                   openmct.install(openmct.plugins.MyItems());
 
                   openmct.start();
+                  window.openmct = openmct;
              }
         );
     </script>
