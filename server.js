@@ -19,8 +19,8 @@
     var fs = require('fs');
     var request = require('request');
     var Rover = require('./rover.js');
-    var RealtimeServer = require('openmct-tutorials/example-server/realtime-server');
-    var HistoryServer = require('openmct-tutorials/example-server/history-server');
+    var RealtimeServer = require('./openmct-tutorial-completed/example-server/realtime-server');
+    var HistoryServer = require('./openmct-tutorial-completed/example-server/history-server');
 
     var proxyUrls = [
         'http://cab.inta-csic.es/rems/wp-content/plugins/marsweather-widget/api.php'

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "npm run install:openmct && npm run install:tutorial",
     "install:openmct": "cd node_modules/openmct && npm install",
-    "install:tutorial": "npm install --ignore-scripts nasa/openmct-tutorial#tutorial-updates",
+    "install:tutorial": "curl https://github.com/nasa/openmct-tutorial/archive/completed.zip -L -o completed.zip && unzip completed.zip && rm completed.zip",
     "start": "node server.js"
   },
   "author": "National Aeronautics and Space Administration",
@@ -17,7 +17,7 @@
     "express-ws": "^3.0.0",
     "hopscotch": "^0.2.7",
     "minimist": "^1.2.0",
-    "openmct": "github:nasa/openmct#ea77e014b8d82b04f938ec3f845ecedc5c200fa7",
+    "openmct": "github:nasa/openmct#39a7f43cd005d761d66157ae6072ef76826de120",
     "request": "^2.81.0",
     "requirejs": "^2.3.3",
     "text": "github:requirejs/text"
