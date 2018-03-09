@@ -17,7 +17,7 @@
     "express-ws": "^3.0.0",
     "hopscotch": "^0.2.7",
     "minimist": "^1.2.0",
-    "openmct": "github:nasa/openmct#ff003c3dab75672ef9ef707081b40a23e2cc89b2",
+    "openmct": "github:nasa/openmct#ea77e014b8d82b04f938ec3f845ecedc5c200fa7",
     "request": "^2.81.0",
     "requirejs": "^2.3.3",
     "text": "github:requirejs/text"
